@@ -1,0 +1,22 @@
+﻿using BloogBloom.Models.Domain;
+
+namespace BloogBloom.Repository
+{
+    public interface ITagRepository
+    {
+        Task<IEnumerable<Tag>> GetAllAsync(
+            string? searchQuery = null,
+            string? sortBy = null,
+            string? sortDirection = null,
+            int pageNumber = 1,
+            int PageSize = 100);
+        Task<Tag?> GetAsync(Guid id);
+
+        Task<Tag> AddAsync(Tag tag);
+        Task<Tag?> UpdateAsync(Tag tag);
+        Task<Tag> DeleteAsync(Guid id);
+
+        Task<int> CountAsync();
+
+    }
+}
